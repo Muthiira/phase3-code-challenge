@@ -1,4 +1,3 @@
-require 'pry'
 class Magazine
   attr_accessor :name, :category
   @@all = []
@@ -12,5 +11,24 @@ class Magazine
    @@all
   end
 
+  def contributors
+    #filter
+    Article.all.filter{|article|article.magazine.name==@name}.map{|article|article.author.name}.uniq
+  end
+
+  def self.find_by_name(name)
+    # find returns1
+    Magazine.all.find{|magazine|
+      magazine.name == name}
+  end
+  
+  def article_titles
+    Article.all.filter{|article|article.magazine.name==@name}.map{|article|article.title}
+  end
+
+  def contributing_authors
+    # filter  and tally
+    popular_authors = Article.all.filter{|article|article.magazine.name== @name}.map{|article|article.author.name}.tally.each{|key, value| value > 2}
+    popular_authors
+  end
 end
-binding.pry

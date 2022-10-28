@@ -1,7 +1,6 @@
-require 'pry'
 class Article
 	@@all = []
-attr_reader :magazine, :title, :author
+attr_reader :magazine, :title
 	def initialize( author, magazine, title)
 		@author = author
 		@magazine = magazine
@@ -9,15 +8,14 @@ attr_reader :magazine, :title, :author
 		@@all << self
 	end
 
-	def self
+	def self.all
 		@@all
 	end
 
 	def author
-		@author.name
+		@author
 	end
 	# def magazine
-	# 	@magazine.name
+	# 	@magazine
 	# end
 end
-binding.pry 
