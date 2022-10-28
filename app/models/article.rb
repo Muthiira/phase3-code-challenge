@@ -21,4 +21,4 @@ attr_reader :author,:magazine, :title
 		@magazine
 	end
 end
-binding.pry
+binding.pry 
