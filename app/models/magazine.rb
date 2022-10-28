@@ -7,8 +7,8 @@ class Magazine
     @name = name
     @category = category
     @@all << self
-  end
-  def self
+  end 
+  def self.all
    @@all
   end
 
